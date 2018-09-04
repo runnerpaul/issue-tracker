@@ -1,5 +1,5 @@
 {
-  "secretKey": "this is a secret key, right here",
+  "secretKey": "secret key",
   "env": "Default",
   "server": {
     "name": "Issue Tracker API",
@@ -14,7 +14,7 @@
     "baseUrl" : "https://github.com/",
     "orgs": [
       {
-        "owner": "PCTestOrg",
+        "owner": "TestOrg",
         "repos": [
           {
             "repoName": "test1"
@@ -25,7 +25,7 @@
         ]
       },
       {
-        "owner": "PCTestOrg2",
+        "owner": "TestOrg2",
         "repos": [
           {
             "repoName": "test1"
@@ -34,7 +34,7 @@
       }
     ],
     "app": {
-      "id": 12504,
+      "id": 12345,
       "pemFile": "./config/github-issue-tracker.pem"
     }
   }
