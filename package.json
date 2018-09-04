@@ -1,0 +1,37 @@
+{
+  "name": "issue-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@octokit/rest": "^15.6.1",
+    "axios": "^0.18.0",
+    "colors": "^1.0.3",
+    "config": "^1.30.0",
+    "halson": "^2.3.1",
+    "jshint": "^2.9.6",
+    "jsonwebtoken": "^8.1.1",
+    "mongoose": "^5.2.12",
+    "mongoose-json-select": "^0.2.1",
+    "mongoose-mock": "^0.4.0",
+    "proxyquire": "^2.0.1",
+    "querystring": "^0.2.0",
+    "restify": "^6.0.0",
+    "restify-errors": "^6.0.0",
+    "restify-plugins": "^1.6.0",
+    "sinon": "^4.5.0",
+    "swagger-node-restify": "^0.1.2",
+    "tv4": "^1.1.9",
+    "tv4-formats": "^1.0.0",
+    "underscore": "^1.7.0",
+    "winston": "^3.0.0-rc2"
+  }
+}
