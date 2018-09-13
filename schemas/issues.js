@@ -17,7 +17,7 @@ module.exports = {
       "type": "string",
       "description": "URL of the issue"
     },
-    "state": {
+    "issue_state": {
       "type": "string",
       "description": "The state of the issue"
     }

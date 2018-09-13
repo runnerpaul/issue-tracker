@@ -3,7 +3,7 @@ getEnterpriseGitHubIssues = require('./lib/getEnterpriseGitHubIssues');
 
 
 getGitHubIssues.deleteFromDb('', function() {
-//getGitHubIssues.extractToDb();
+getGitHubIssues.extractToDb();
 getEnterpriseGitHubIssues.extractToDb();
 });
 
