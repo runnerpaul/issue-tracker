@@ -16,7 +16,7 @@ class BaseController {
       let method = act['spec']['method'];
       logger.info(`Setting up auto-doc for ( ${ method } ) - ${ act['spec']['nickname'] }`);
       sw['add' + method](act);
-      app[method.toLowerCase()](act['spec']['path'], act['action']);
+      //app[method.toLowerCase()](act['spec']['path'], act['action']);    //TODO: DELETE is not a function error. This needs investigated.
     });
   }
 

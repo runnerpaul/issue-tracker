@@ -36,7 +36,6 @@ const BaseController = require("./baseController"),
 
     //For testing purposes only
     create(req, res, next) {
-      console.log('got to 1x');
       let data = req.body;
       if(data) {
         let newIssue = this.lib.db.model('Issues')(data);
@@ -77,9 +76,9 @@ const BaseController = require("./baseController"),
       }
     }    
 
-    delete(req, res, next) {
+    remove(req, res, next) {
       let collectionContents = this.lib.db.model('Issues');
-      collectionContents.remove({}, (err, result) => {
+      collectionContents.deleteMany({}, (err, result) => {
         if(err) return next(this.RESTError('InternalServerError', err));
         this.writeHAL(res, result);
       });
@@ -105,9 +104,10 @@ const BaseController = require("./baseController"),
 
   module.exports = function(lib) {
     let controller = new Issues(lib);
+    let v1path = '/api/v1';
 
     controller.addAction({
-      'path': '/issues',
+      'path': v1path + '/issues',
       'method': 'GET',
       'summary': 'Returns the list of issues across all repos',
       'responseClass': 'Issues',
@@ -115,16 +115,16 @@ const BaseController = require("./baseController"),
     }, controller.list);
 
     controller.addAction({
-      'path': '/issues',
+      'path': v1path + '/issues',
       'method': 'DELETE',
       'summary': 'Delete all issues from the list',
       'responseClass': 'Issues',
       'nickname': 'deleteIssues'
-    }, controller.delete);
+    }, controller.remove);
 
     //For testing purposes only
     controller.addAction({
-      'path': '/issues',
+      'path': v1path + '/issues',
       'method': 'POST',
       'params': [swagger.bodyParam('issues', 'The JSON data of the issues', 'string')],
       'summary': 'Adds a new issue to the list',
@@ -133,7 +133,7 @@ const BaseController = require("./baseController"),
     }, controller.create);
 
     controller.addAction({
-      'path': '/issues/{id}',
+      'path': v1path + '/issues/{id}',
       'method': 'GET',
       'params': [swagger.pathParam('id', 'The id of the issue', 'string')],
       'summary': 'Returns the data of an issue',
@@ -142,7 +142,7 @@ const BaseController = require("./baseController"),
     }, controller.details);
 
     controller.addAction({
-      'path': '/issues/{id}',
+      'path': v1path + '/issues/{id}',
       'method': 'PUT',
       'summary': "UPDATES the issues's information",
       'params': [swagger.pathParam('id', 'The id of the issue', 'string'),

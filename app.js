@@ -1,4 +1,11 @@
-var getGitHubIssues = require('./lib/getPublicGitHubIssues');
+var getGitHubIssues = require('./lib/getPublicGitHubIssues'),
+getEnterpriseGitHubIssues = require('./lib/getEnterpriseGitHubIssues');
 
 
-getGitHubIssues.extractToDb();
+getGitHubIssues.deleteFromDb('', function() {
+//getGitHubIssues.extractToDb();
+getEnterpriseGitHubIssues.extractToDb();
+});
+
+//Test delete
+//getGitHubIssues.deleteFromDb('', function() {}
